@@ -21,6 +21,7 @@ const login = async (req, res) => {
   if (!comparePassword) throw "Email and password donot match";
 
   const accessToken = jwtManager(getUser);
+  console.log(accessToken);
 
   res.status(200).json({
     status: "Success",

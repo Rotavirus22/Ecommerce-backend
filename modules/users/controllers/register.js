@@ -29,8 +29,12 @@ const register = async (req, res) => {
   });
 
   const accessToken = jwtManager(createdUser);
+
+  console.log(accessToken);
+
   res.status(201).json({
-    status: "User registered successfully !!",
+    status: "Success",
+    message: "User registered Successfully",
     accessToken: accessToken,
   });
 };
