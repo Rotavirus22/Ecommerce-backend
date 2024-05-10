@@ -23,7 +23,8 @@ const login = async (req, res) => {
   const accessToken = jwtManager(getUser);
 
   res.status(200).json({
-    success: "User Logged in Successfully",
+    status: "Success",
+    message: "User Logged in Successfully",
     accessToken: accessToken,
   });
 };

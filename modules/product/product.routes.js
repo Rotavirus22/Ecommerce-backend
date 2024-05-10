@@ -9,6 +9,7 @@ const getProductsByCategories = require("./controllers/getProductByCategories");
 const addToCart = require("./controllers/addToCart");
 const createOrder = require("./controllers/createOrder");
 const getCartItems = require("./controllers/getCartItems");
+const getOrderByUser = require("./controllers/getOrderByuser");
 
 const productRoute = express.Router();
 
@@ -27,5 +28,6 @@ productRoute.post(
 productRoute.get("/cart/getCart", getCartItems);
 productRoute.post("/add-to-cart", addToCart);
 productRoute.post("/createOrder", createOrder);
+productRoute.get("/getOrder/user/:user_id", getOrderByUser);
 
 module.exports = productRoute;

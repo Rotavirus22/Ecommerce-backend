@@ -5,7 +5,7 @@ const addToCart = async (req, res) => {
   const userModel = mongoose.model("users");
   const productModel = mongoose.model("products");
 
-  const { product_id } = req.body;
+  const { product_id, quantity } = req.body;
 
   try {
     const user = await userModel.findOne({
@@ -28,7 +28,8 @@ const addToCart = async (req, res) => {
       product_image: product.product_image,
       user_id: req.user._id,
       user_name: user.fullName,
-      price: product.new_price,
+      price: product.new_price * quantity,
+      quantity: quantity,
     });
 
     res.status(200).json({

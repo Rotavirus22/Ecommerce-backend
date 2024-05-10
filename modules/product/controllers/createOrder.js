@@ -19,6 +19,7 @@ const createOrder = async (req, res) => {
       return {
         product_id: item.product_id,
         product_name: item.product_name,
+        product_shop: item.user_id,
         price: item.price,
       };
     });

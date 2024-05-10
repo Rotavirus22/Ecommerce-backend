@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const userRoute = require("./modules/users/users.routes");
 const categoryRoute = require("./modules/categories/categories.routes");
 const productRoute = require("./modules/product/product.routes");
+const paymentRoute = require("./modules/payment/payment.routes");
 
 require("dotenv").config();
 const app = express();
@@ -27,6 +28,7 @@ require("./models/category.model");
 require("./models/product.model");
 require("./models/cart.model");
 require("./models/order.model");
+require("./models/payment.model");
 
 app.use(express.json());
 
@@ -34,6 +36,7 @@ app.use(express.json());
 app.use("/api/users", userRoute);
 app.use("/api/categories", categoryRoute);
 app.use("/api/products", productRoute);
+app.use("/api/payments", paymentRoute);
 
 app.all("*", (req, res, next) => {
   res.status(400).json({

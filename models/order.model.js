@@ -11,11 +11,21 @@ const orderSchema = new mongoose.Schema(
       type: String,
       required: [true, "User name is required"],
     },
+    status: {
+      type: String,
+      default: "Pending",
+      enum: ["Pending", "Completed"],
+    },
     products: [
       {
         product_id: {
           type: mongoose.Schema.Types.ObjectId,
+          ref: "products",
           required: [true, "Product id is necessary"],
+        },
+        product_shop: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "users",
         },
         product_name: {
           type: String,
